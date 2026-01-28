@@ -92,7 +92,7 @@
 <label class="text-sm font-semibold opacity-80" for="adSpend">Monthly Ad Spend</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
 <span>$</span>
-<input class="w-20 bg-transparent text-right focus:outline-none" id="adSpendValue" max="8000" min="500" step="100" type="number" value="2500"/>
+<input class="w-20 bg-transparent text-right focus:outline-none p-0 m-0" id="adSpendValue" max="8000" min="500" step="100" type="number" value="2500"/>
 </div>
 </div>
 <input class="w-full" id="adSpend" max="8000" min="500" step="100" type="range" value="2500"/>
@@ -103,7 +103,7 @@
 <label class="text-sm font-semibold opacity-80" for="costPerLead">Cost per Lead</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
 <span>$</span>
-<input class="w-16 bg-transparent text-right focus:outline-none" id="costPerLeadValue" max="120" min="10" step="1" type="number" value="35"/>
+<input class="w-16 bg-transparent text-right focus:outline-none p-0 m-0" id="costPerLeadValue" max="120" min="10" step="1" type="number" value="35"/>
 </div>
 </div>
 <input class="w-full" id="costPerLead" max="120" min="10" step="1" type="range" value="35"/>
@@ -113,7 +113,7 @@
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="bookingRate">Lead-to-Booking Rate</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-<input class="w-12 bg-transparent text-right focus:outline-none" id="bookingRateValue" max="80" min="5" step="1" type="number" value="28"/>
+<input class="w-12 bg-transparent text-right focus:outline-none p-0 m-0" id="bookingRateValue" max="80" min="5" step="1" type="number" value="28"/>
 <span>%</span>
 </div>
 </div>
@@ -125,17 +125,17 @@
 <label class="text-sm font-semibold opacity-80" for="avgJobPrice">Average Ticket Price</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
 <span>$</span>
-<input class="w-20 bg-transparent text-right focus:outline-none" id="avgJobPriceValue" max="400" min="80" step="5" type="number" value="185"/>
+<input class="w-20 bg-transparent text-right focus:outline-none p-0 m-0" id="avgJobPriceValue" max="400" min="80" step="1" type="number" value="185"/>
 </div>
 </div>
-<input class="w-full" id="avgJobPrice" max="400" min="80" step="5" type="range" value="185"/>
+<input class="w-full" id="avgJobPrice" max="400" min="80" step="1" type="range" value="185"/>
 </div>
 <!-- Slider: Repeat Client % -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="repeatRate">Repeat Client %</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-<input class="w-12 bg-transparent text-right focus:outline-none" id="repeatRateValue" max="90" min="10" step="1" type="number" value="65"/>
+<input class="w-12 bg-transparent text-right focus:outline-none p-0 m-0" id="repeatRateValue" max="90" min="10" step="1" type="number" value="65"/>
 <span>%</span>
 </div>
 </div>
@@ -146,7 +146,7 @@
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="churnRate">Monthly Churn (Industry Avg.)</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-<input class="w-12 bg-transparent text-right focus:outline-none" id="churnRateValue" max="30" min="0" step="1" type="number" value="5"/>
+<input class="w-12 bg-transparent text-right focus:outline-none p-0 m-0" id="churnRateValue" max="30" min="0" step="1" type="number" value="5"/>
 <span>%</span>
 </div>
 </div>
@@ -158,10 +158,10 @@
 <label class="text-sm font-semibold opacity-80" for="repeatValue">Monthly Value of Repeat Client</label>
 <div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
 <span>$</span>
-<input class="w-20 bg-transparent text-right focus:outline-none" id="repeatValueValue" max="400" min="60" step="5" type="number" value="160"/>
+<input class="w-20 bg-transparent text-right focus:outline-none p-0 m-0" id="repeatValueValue" max="400" min="60" step="1" type="number" value="160"/>
 </div>
 </div>
-<input class="w-full" id="repeatValue" max="400" min="60" step="5" type="range" value="160"/>
+<input class="w-full" id="repeatValue" max="400" min="60" step="1" type="range" value="160"/>
 </div>
 </div>
 <div class="mt-8 pt-6 border-t border-[#e7f3e9] dark:border-[#1a321d]">
@@ -220,7 +220,7 @@
 </div>
 </div>
 <!-- Simplified Chart Visualization using CSS Flex/Height -->
-<div class="p-8 h-[360px] flex items-end justify-around gap-6 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4 overflow-x-auto" id="revenueChart"></div>
+<div class="p-8 h-[360px] flex items-end justify-around gap-6 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4" id="revenueChart"></div>
 <p class="px-8 text-xs text-[#4c9a59] dark:text-[#7ed38c] pb-4">Results shown are expected ranges based on average performance — not guarantees.</p>
 <div class="p-6 bg-[#f8fcf9] dark:bg-[#102213] flex items-start gap-4">
 <div class="p-2 bg-primary/20 rounded-full">
@@ -300,6 +300,11 @@
         const renderChart = (months, oneTimeRevenue) => {
             outputs.revenueChart.innerHTML = "";
             const maxTotal = Math.max(...months.map((month) => month.total), 1);
+            const shouldScroll = months.length >= 12;
+            outputs.revenueChart.classList.toggle("overflow-x-auto", shouldScroll);
+            outputs.revenueChart.classList.toggle("justify-start", shouldScroll);
+            outputs.revenueChart.classList.toggle("custom-scrollbar", shouldScroll);
+            outputs.revenueChart.classList.toggle("justify-around", !shouldScroll);
 
             months.forEach((month) => {
                 const wrapper = document.createElement("div");
