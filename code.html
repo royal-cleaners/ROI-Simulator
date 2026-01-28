@@ -173,7 +173,7 @@
 <!-- Summary Scorecards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-white dark:bg-[#152a19] p-6 rounded-xl border border-[#e7f3e9] dark:border-[#1a321d] shadow-sm">
-<p class="text-sm font-medium opacity-60 mb-1">Total Revenue (3mo)</p>
+<p class="text-sm font-medium opacity-60 mb-1" id="totalRevenueLabel">Total Revenue (3mo)</p>
 <p class="text-3xl font-black text-[#0d1b10] dark:text-white tracking-tight" id="totalRevenue">$42,850</p>
 <div class="mt-3 flex items-center gap-1 text-xs font-bold text-primary">
 <span class="material-symbols-outlined text-sm">trending_up</span>
@@ -199,9 +199,16 @@
 </div>
 <!-- Visual Results Card (Chart Container) -->
 <div class="bg-white dark:bg-[#152a19] rounded-xl border border-[#e7f3e9] dark:border-[#1a321d] shadow-sm overflow-hidden">
-<div class="px-8 py-6 border-b border-[#e7f3e9] dark:border-[#1a321d] flex justify-between items-center">
+<div class="px-8 py-6 border-b border-[#e7f3e9] dark:border-[#1a321d] flex flex-wrap justify-between items-center gap-4">
 <h3 class="font-bold text-lg">Revenue Composition Over Time</h3>
-<div class="flex gap-4 items-center">
+<div class="flex flex-wrap items-center gap-4">
+<label class="text-xs font-semibold uppercase tracking-wide text-[#4c9a59] dark:text-[#7ed38c]" for="trajectoryRange">Timeline</label>
+<select class="text-sm font-semibold rounded-lg border border-[#e7f3e9] dark:border-[#1a321d] bg-white dark:bg-[#102213] px-3 py-2" id="trajectoryRange">
+<option value="3">3 Months</option>
+<option value="6">6 Months</option>
+<option value="12">12 Months</option>
+<option value="24">24 Months</option>
+</select>
 <div class="flex items-center gap-2">
 <span class="size-3 rounded-sm bg-[#cfe7d3] dark:bg-[#2a452d]"></span>
 <span class="text-xs font-medium opacity-70">One-time Jobs</span>
@@ -213,35 +220,7 @@
 </div>
 </div>
 <!-- Simplified Chart Visualization using CSS Flex/Height -->
-<div class="p-8 h-[360px] flex items-end justify-around gap-12 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4">
-<!-- Month 1 -->
-<div class="flex-1 flex flex-col items-center group max-w-[80px]">
-<div class="w-full flex flex-col-reverse rounded-t-lg overflow-hidden h-[120px] bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105" id="month1Bar">
-<div class="bg-primary" id="month1Recurring" title="Recurring: $1,200"></div>
-<div class="bg-[#cfe7d3] dark:bg-[#2a452d]" id="month1Onetime" title="One-time: $4,800"></div>
-</div>
-<span class="mt-4 font-bold text-sm">Month 1</span>
-<span class="text-xs opacity-60" id="month1Total">$6,000</span>
-</div>
-<!-- Month 2 -->
-<div class="flex-1 flex flex-col items-center group max-w-[80px]">
-<div class="w-full flex flex-col-reverse rounded-t-lg overflow-hidden h-[200px] bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105" id="month2Bar">
-<div class="bg-primary" id="month2Recurring" title="Recurring: $4,500"></div>
-<div class="bg-[#cfe7d3] dark:bg-[#2a452d]" id="month2Onetime" title="One-time: $5,500"></div>
-</div>
-<span class="mt-4 font-bold text-sm">Month 2</span>
-<span class="text-xs opacity-60" id="month2Total">$10,000</span>
-</div>
-<!-- Month 3 -->
-<div class="flex-1 flex flex-col items-center group max-w-[80px]">
-<div class="w-full flex flex-col-reverse rounded-t-lg overflow-hidden h-[300px] bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105" id="month3Bar">
-<div class="bg-primary" id="month3Recurring" title="Recurring: $15,000"></div>
-<div class="bg-[#cfe7d3] dark:bg-[#2a452d]" id="month3Onetime" title="One-time: $5,000"></div>
-</div>
-<span class="mt-4 font-bold text-sm">Month 3</span>
-<span class="text-xs opacity-60" id="month3Total">$20,000</span>
-</div>
-</div>
+<div class="p-8 h-[360px] flex items-end justify-around gap-6 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4 overflow-x-auto" id="revenueChart"></div>
 <p class="px-8 text-xs text-[#4c9a59] dark:text-[#7ed38c] pb-4">Results shown are expected ranges based on average performance — not guarantees.</p>
 <div class="p-6 bg-[#f8fcf9] dark:bg-[#102213] flex items-start gap-4">
 <div class="p-2 bg-primary/20 rounded-full">
@@ -290,21 +269,12 @@
         };
 
         const outputs = {
+            totalRevenueLabel: document.getElementById("totalRevenueLabel"),
             totalRevenue: document.getElementById("totalRevenue"),
             netProfit: document.getElementById("netProfit"),
             totalRepeatClients: document.getElementById("totalRepeatClients"),
-            month1Total: document.getElementById("month1Total"),
-            month2Total: document.getElementById("month2Total"),
-            month3Total: document.getElementById("month3Total"),
-            month1Bar: document.getElementById("month1Bar"),
-            month2Bar: document.getElementById("month2Bar"),
-            month3Bar: document.getElementById("month3Bar"),
-            month1Recurring: document.getElementById("month1Recurring"),
-            month2Recurring: document.getElementById("month2Recurring"),
-            month3Recurring: document.getElementById("month3Recurring"),
-            month1Onetime: document.getElementById("month1Onetime"),
-            month2Onetime: document.getElementById("month2Onetime"),
-            month3Onetime: document.getElementById("month3Onetime"),
+            revenueChart: document.getElementById("revenueChart"),
+            trajectoryRange: document.getElementById("trajectoryRange"),
         };
 
         const formatCurrency = (value) =>
@@ -327,6 +297,43 @@
             onetimeEl.title = `One-time: ${formatCurrency(onetime)}`;
         };
 
+        const renderChart = (months, oneTimeRevenue) => {
+            outputs.revenueChart.innerHTML = "";
+            const maxTotal = Math.max(...months.map((month) => month.total), 1);
+
+            months.forEach((month) => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "flex-1 flex flex-col items-center group min-w-[80px]";
+
+                const bar = document.createElement("div");
+                bar.className = "w-full flex flex-col-reverse rounded-t-lg overflow-hidden bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105";
+
+                const recurringEl = document.createElement("div");
+                recurringEl.className = "bg-primary";
+
+                const onetimeEl = document.createElement("div");
+                onetimeEl.className = "bg-[#cfe7d3] dark:bg-[#2a452d]";
+
+                bar.appendChild(recurringEl);
+                bar.appendChild(onetimeEl);
+
+                const label = document.createElement("span");
+                label.className = "mt-4 font-bold text-sm";
+                label.textContent = `Month ${month.index}`;
+
+                const total = document.createElement("span");
+                total.className = "text-xs opacity-60";
+                total.textContent = formatCurrency(month.total);
+
+                wrapper.appendChild(bar);
+                wrapper.appendChild(label);
+                wrapper.appendChild(total);
+                outputs.revenueChart.appendChild(wrapper);
+
+                setBar(bar, recurringEl, onetimeEl, month.total, month.recurring, oneTimeRevenue, maxTotal);
+            });
+        };
+
         const updateModel = () => {
             const adSpend = Number(inputs.adSpend.value);
             const costPerLead = Number(inputs.costPerLead.value);
@@ -336,38 +343,33 @@
             const churnRate = Number(inputs.churnRate.value) / 100;
             const repeatValue = Number(inputs.repeatValue.value);
 
+            const timelineMonths = Number(outputs.trajectoryRange.value);
             const leads = costPerLead === 0 ? 0 : adSpend / costPerLead;
             const bookings = leads * bookingRate;
             const oneTimeRevenue = bookings * avgJobPrice;
             const newRepeatClients = bookings * repeatRate;
 
-            const month1ActiveRepeats = newRepeatClients;
-            const month2ActiveRepeats = month1ActiveRepeats * (1 - churnRate) + newRepeatClients;
-            const month3ActiveRepeats = month2ActiveRepeats * (1 - churnRate) + newRepeatClients;
+            const months = [];
+            let activeRepeats = 0;
+            for (let i = 1; i <= timelineMonths; i += 1) {
+                activeRepeats = activeRepeats * (1 - churnRate) + newRepeatClients;
+                const recurringRevenue = activeRepeats * repeatValue;
+                months.push({
+                    index: i,
+                    recurring: recurringRevenue,
+                    total: oneTimeRevenue + recurringRevenue,
+                });
+            }
 
-            const recurringMonth1 = month1ActiveRepeats * repeatValue;
-            const recurringMonth2 = month2ActiveRepeats * repeatValue;
-            const recurringMonth3 = month3ActiveRepeats * repeatValue;
+            const totalRevenue = months.reduce((sum, month) => sum + month.total, 0);
+            const netProfit = totalRevenue - adSpend * timelineMonths;
+            const totalRepeatClients = activeRepeats;
 
-            const totalMonth1 = oneTimeRevenue + recurringMonth1;
-            const totalMonth2 = oneTimeRevenue + recurringMonth2;
-            const totalMonth3 = oneTimeRevenue + recurringMonth3;
-
-            const totalRevenue = totalMonth1 + totalMonth2 + totalMonth3;
-            const netProfit = totalRevenue - adSpend * 3;
-            const totalRepeatClients = month3ActiveRepeats;
-
-            outputs.month1Total.textContent = formatCurrency(totalMonth1);
-            outputs.month2Total.textContent = formatCurrency(totalMonth2);
-            outputs.month3Total.textContent = formatCurrency(totalMonth3);
+            outputs.totalRevenueLabel.textContent = `Total Revenue (${timelineMonths}mo)`;
             outputs.totalRevenue.textContent = formatCurrency(totalRevenue);
             outputs.netProfit.textContent = formatCurrency(netProfit);
             outputs.totalRepeatClients.textContent = formatNumber(totalRepeatClients);
-
-            const maxTotal = Math.max(totalMonth1, totalMonth2, totalMonth3);
-            setBar(outputs.month1Bar, outputs.month1Recurring, outputs.month1Onetime, totalMonth1, recurringMonth1, oneTimeRevenue, maxTotal);
-            setBar(outputs.month2Bar, outputs.month2Recurring, outputs.month2Onetime, totalMonth2, recurringMonth2, oneTimeRevenue, maxTotal);
-            setBar(outputs.month3Bar, outputs.month3Recurring, outputs.month3Onetime, totalMonth3, recurringMonth3, oneTimeRevenue, maxTotal);
+            renderChart(months, oneTimeRevenue);
         };
 
         const controlPairs = [
@@ -399,6 +401,8 @@
             rangeEl.addEventListener("input", syncFromRange);
             inputEl.addEventListener("input", syncFromInput);
         });
+
+        outputs.trajectoryRange.addEventListener("change", updateModel);
 
         updateModel();
 </script>
