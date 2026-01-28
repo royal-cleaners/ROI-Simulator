@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cleaning Business ROI Simulator</title>
+<title>Royal Cleaners ROI Simulator</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -46,7 +46,7 @@
 <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-[#102213]">
 <span class="material-symbols-outlined font-bold">query_stats</span>
 </div>
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ROI Simulator</h2>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Royal Cleaners ROI Simulator</h2>
 </div>
 <div class="flex flex-1 justify-end gap-8 items-center">
 <nav class="hidden md:flex items-center gap-9">
@@ -64,7 +64,7 @@
 <!-- Page Heading -->
 <div class="flex flex-wrap justify-between items-end gap-3 mb-10">
 <div class="flex flex-col gap-2">
-<h1 class="text-[#0d1b10] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Cleaning Business ROI Simulator</h1>
+<h1 class="text-[#0d1b10] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Royal Cleaners ROI Simulator</h1>
 <p class="text-[#4c9a59] dark:text-[#7ed38c] text-lg font-normal leading-normal">Visualize how recurring revenue compounds your growth over time.</p>
 </div>
 <div class="flex gap-3">
@@ -90,7 +90,10 @@
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="adSpend">Monthly Ad Spend</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded" id="adSpendValue">$2,500</span>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-20 bg-transparent text-right focus:outline-none" id="adSpendValue" max="8000" min="500" step="100" type="number" value="2500"/>
+</div>
 </div>
 <input class="w-full" id="adSpend" max="8000" min="500" step="100" type="range" value="2500"/>
 </div>
@@ -98,7 +101,10 @@
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="costPerLead">Cost per Lead</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded" id="costPerLeadValue">$35</span>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-16 bg-transparent text-right focus:outline-none" id="costPerLeadValue" max="120" min="10" step="1" type="number" value="35"/>
+</div>
 </div>
 <input class="w-full" id="costPerLead" max="120" min="10" step="1" type="range" value="35"/>
 </div>
@@ -106,7 +112,10 @@
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="bookingRate">Lead-to-Booking Rate</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded" id="bookingRateValue">28%</span>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<input class="w-12 bg-transparent text-right focus:outline-none" id="bookingRateValue" max="80" min="5" step="1" type="number" value="28"/>
+<span>%</span>
+</div>
 </div>
 <input class="w-full" id="bookingRate" max="80" min="5" step="1" type="range" value="28"/>
 </div>
@@ -114,7 +123,10 @@
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="avgJobPrice">Average Ticket Price</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded" id="avgJobPriceValue">$185</span>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-20 bg-transparent text-right focus:outline-none" id="avgJobPriceValue" max="400" min="80" step="5" type="number" value="185"/>
+</div>
 </div>
 <input class="w-full" id="avgJobPrice" max="400" min="80" step="5" type="range" value="185"/>
 </div>
@@ -122,15 +134,32 @@
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="repeatRate">Repeat Client %</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded" id="repeatRateValue">65%</span>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<input class="w-12 bg-transparent text-right focus:outline-none" id="repeatRateValue" max="90" min="10" step="1" type="number" value="65"/>
+<span>%</span>
+</div>
 </div>
 <input class="w-full" id="repeatRate" max="90" min="10" step="1" type="range" value="65"/>
+</div>
+<!-- Slider: Monthly Churn -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold opacity-80" for="churnRate">Monthly Churn (Industry Avg.)</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<input class="w-12 bg-transparent text-right focus:outline-none" id="churnRateValue" max="30" min="0" step="1" type="number" value="5"/>
+<span>%</span>
+</div>
+</div>
+<input class="w-full" id="churnRate" max="30" min="0" step="1" type="range" value="5"/>
 </div>
 <!-- Slider: Monthly Value of Repeat Client -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
 <label class="text-sm font-semibold opacity-80" for="repeatValue">Monthly Value of Repeat Client</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded" id="repeatValueValue">$160</span>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-20 bg-transparent text-right focus:outline-none" id="repeatValueValue" max="400" min="60" step="5" type="number" value="160"/>
+</div>
 </div>
 <input class="w-full" id="repeatValue" max="400" min="60" step="5" type="range" value="160"/>
 </div>
@@ -256,16 +285,11 @@
             bookingRate: document.getElementById("bookingRate"),
             avgJobPrice: document.getElementById("avgJobPrice"),
             repeatRate: document.getElementById("repeatRate"),
+            churnRate: document.getElementById("churnRate"),
             repeatValue: document.getElementById("repeatValue"),
         };
 
         const outputs = {
-            adSpendValue: document.getElementById("adSpendValue"),
-            costPerLeadValue: document.getElementById("costPerLeadValue"),
-            bookingRateValue: document.getElementById("bookingRateValue"),
-            avgJobPriceValue: document.getElementById("avgJobPriceValue"),
-            repeatRateValue: document.getElementById("repeatRateValue"),
-            repeatValueValue: document.getElementById("repeatValueValue"),
             totalRevenue: document.getElementById("totalRevenue"),
             netProfit: document.getElementById("netProfit"),
             totalRepeatClients: document.getElementById("totalRepeatClients"),
@@ -289,7 +313,7 @@
         const formatNumber = (value) =>
             value.toLocaleString("en-US", { maximumFractionDigits: 0 });
 
-        const formatPercent = (value) => `${Math.round(value)}%`;
+        const clampValue = (value, min, max) => Math.min(Math.max(value, min), max);
 
         const setBar = (barEl, recurringEl, onetimeEl, total, recurring, onetime, maxTotal) => {
             const maxHeight = 300;
@@ -309,23 +333,21 @@
             const bookingRate = Number(inputs.bookingRate.value) / 100;
             const avgJobPrice = Number(inputs.avgJobPrice.value);
             const repeatRate = Number(inputs.repeatRate.value) / 100;
+            const churnRate = Number(inputs.churnRate.value) / 100;
             const repeatValue = Number(inputs.repeatValue.value);
-
-            outputs.adSpendValue.textContent = formatCurrency(adSpend);
-            outputs.costPerLeadValue.textContent = formatCurrency(costPerLead);
-            outputs.bookingRateValue.textContent = formatPercent(bookingRate * 100);
-            outputs.avgJobPriceValue.textContent = formatCurrency(avgJobPrice);
-            outputs.repeatRateValue.textContent = formatPercent(repeatRate * 100);
-            outputs.repeatValueValue.textContent = formatCurrency(repeatValue);
 
             const leads = costPerLead === 0 ? 0 : adSpend / costPerLead;
             const bookings = leads * bookingRate;
             const oneTimeRevenue = bookings * avgJobPrice;
-            const repeatClients = bookings * repeatRate;
+            const newRepeatClients = bookings * repeatRate;
 
-            const recurringMonth1 = repeatClients * repeatValue;
-            const recurringMonth2 = repeatClients * repeatValue * 2;
-            const recurringMonth3 = repeatClients * repeatValue * 3;
+            const month1ActiveRepeats = newRepeatClients;
+            const month2ActiveRepeats = month1ActiveRepeats * (1 - churnRate) + newRepeatClients;
+            const month3ActiveRepeats = month2ActiveRepeats * (1 - churnRate) + newRepeatClients;
+
+            const recurringMonth1 = month1ActiveRepeats * repeatValue;
+            const recurringMonth2 = month2ActiveRepeats * repeatValue;
+            const recurringMonth3 = month3ActiveRepeats * repeatValue;
 
             const totalMonth1 = oneTimeRevenue + recurringMonth1;
             const totalMonth2 = oneTimeRevenue + recurringMonth2;
@@ -333,7 +355,7 @@
 
             const totalRevenue = totalMonth1 + totalMonth2 + totalMonth3;
             const netProfit = totalRevenue - adSpend * 3;
-            const totalRepeatClients = repeatClients * 3;
+            const totalRepeatClients = month3ActiveRepeats;
 
             outputs.month1Total.textContent = formatCurrency(totalMonth1);
             outputs.month2Total.textContent = formatCurrency(totalMonth2);
@@ -348,8 +370,34 @@
             setBar(outputs.month3Bar, outputs.month3Recurring, outputs.month3Onetime, totalMonth3, recurringMonth3, oneTimeRevenue, maxTotal);
         };
 
-        Object.values(inputs).forEach((input) => {
-            input.addEventListener("input", updateModel);
+        const controlPairs = [
+            { range: "adSpend", input: "adSpendValue" },
+            { range: "costPerLead", input: "costPerLeadValue" },
+            { range: "bookingRate", input: "bookingRateValue" },
+            { range: "avgJobPrice", input: "avgJobPriceValue" },
+            { range: "repeatRate", input: "repeatRateValue" },
+            { range: "churnRate", input: "churnRateValue" },
+            { range: "repeatValue", input: "repeatValueValue" },
+        ];
+
+        controlPairs.forEach(({ range, input }) => {
+            const rangeEl = document.getElementById(range);
+            const inputEl = document.getElementById(input);
+            inputEl.value = rangeEl.value;
+            const syncFromRange = () => {
+                inputEl.value = rangeEl.value;
+                updateModel();
+            };
+            const syncFromInput = () => {
+                const min = Number(rangeEl.min);
+                const max = Number(rangeEl.max);
+                const nextValue = clampValue(Number(inputEl.value || rangeEl.min), min, max);
+                rangeEl.value = nextValue;
+                inputEl.value = nextValue;
+                updateModel();
+            };
+            rangeEl.addEventListener("input", syncFromRange);
+            inputEl.addEventListener("input", syncFromInput);
         });
 
         updateModel();
