@@ -220,7 +220,7 @@
                         </div>
                     </div>
                     <!-- Simplified Chart Visualization using CSS Flex/Height -->
-                    <div class="p-8 h-[360px] flex items-end justify-around gap-6 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4" id="revenueChart"></div>
+                    <div class="p-8 h-[420px] flex items-end justify-around gap-6 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4" id="revenueChart"></div>
                     <p class="px-8 text-xs text-[#4c9a59] dark:text-[#7ed38c] pb-4">Results shown are expected ranges based on average performance — not guarantees.</p>
                     <div class="p-6 bg-[#f8fcf9] dark:bg-[#102213] flex items-start gap-4">
                         <div class="p-2 bg-primary/20 rounded-full">
@@ -359,8 +359,14 @@
             const months = [];
             let activeRepeats = 0;
             for (let i = 1; i <= timelineMonths; i += 1) {
-                activeRepeats = activeRepeats * (1 - churnRate) + newRepeatClients;
-                const recurringRevenue = activeRepeats * repeatValue;
+                let recurringRevenue;
+                if (i == 1) {
+                    activeRepeats = 0;
+                    recurringRevenue = 0;
+                } else {
+                    activeRepeats = activeRepeats * (1 - churnRate) + newRepeatClients;
+                    recurringRevenue = activeRepeats * repeatValue;
+                }
                 months.push({
                     index: i,
                     recurring: recurringRevenue,
