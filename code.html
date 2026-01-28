@@ -207,7 +207,6 @@
 <option value="3">3 Months</option>
 <option value="6">6 Months</option>
 <option value="12">12 Months</option>
-<option value="24">24 Months</option>
 </select>
 <div class="flex items-center gap-2">
 <span class="size-3 rounded-sm bg-[#cfe7d3] dark:bg-[#2a452d]"></span>
@@ -309,7 +308,7 @@
 
             months.forEach((month) => {
                 const wrapper = document.createElement("div");
-                wrapper.className = "flex-1 flex flex-col items-center group min-w-[80px]";
+                wrapper.className = "flex-1 flex flex-col items-center group min-w-[40px]";
 
                 const bar = document.createElement("div");
                 bar.className = "w-full flex flex-col-reverse rounded-t-lg overflow-hidden bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105";
