@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cleaning Business ROI Simulator</title>
+<title>Royal Cleaners ROI Simulator</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -46,7 +46,7 @@
 <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-[#102213]">
 <span class="material-symbols-outlined font-bold">query_stats</span>
 </div>
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ROI Simulator</h2>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Royal Cleaners ROI Simulator</h2>
 </div>
 <div class="flex flex-1 justify-end gap-8 items-center">
 <nav class="hidden md:flex items-center gap-9">
@@ -64,7 +64,7 @@
 <!-- Page Heading -->
 <div class="flex flex-wrap justify-between items-end gap-3 mb-10">
 <div class="flex flex-col gap-2">
-<h1 class="text-[#0d1b10] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Cleaning Business ROI Simulator</h1>
+<h1 class="text-[#0d1b10] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Royal Cleaners ROI Simulator</h1>
 <p class="text-[#4c9a59] dark:text-[#7ed38c] text-lg font-normal leading-normal">Visualize how recurring revenue compounds your growth over time.</p>
 </div>
 <div class="flex gap-3">
@@ -89,77 +89,79 @@
 <!-- Slider: Monthly Ad Spend -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
-<label class="text-sm font-semibold opacity-80">Monthly Ad Spend</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">$2,500</span>
-</div>
-<div class="relative flex w-full items-center h-6">
-<div class="flex h-1.5 flex-1 rounded-full bg-[#cfe7d3] dark:bg-[#2a452d]">
-<div class="h-full w-[45%] rounded-full bg-primary"></div>
-<div class="relative">
-<div class="absolute -left-2 -top-2 size-5 rounded-full bg-primary border-4 border-white dark:border-[#152a19] shadow-md cursor-pointer"></div>
+<label class="text-sm font-semibold opacity-80" for="adSpend">Monthly Ad Spend</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-20 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="adSpendValue" max="8000" min="500" step="100" type="number" value="2500"/>
 </div>
 </div>
-</div>
+<input class="w-full" id="adSpend" max="8000" min="500" step="100" type="range" value="2500"/>
 </div>
 <!-- Slider: Cost per Lead -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
-<label class="text-sm font-semibold opacity-80">Cost per Lead</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">$35</span>
-</div>
-<div class="relative flex w-full items-center h-6">
-<div class="flex h-1.5 flex-1 rounded-full bg-[#cfe7d3] dark:bg-[#2a452d]">
-<div class="h-full w-[35%] rounded-full bg-primary"></div>
-<div class="relative">
-<div class="absolute -left-2 -top-2 size-5 rounded-full bg-primary border-4 border-white dark:border-[#152a19] shadow-md cursor-pointer"></div>
+<label class="text-sm font-semibold opacity-80" for="costPerLead">Cost per Lead</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-16 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="costPerLeadValue" max="120" min="10" step="1" type="number" value="35"/>
 </div>
 </div>
-</div>
+<input class="w-full" id="costPerLead" max="120" min="10" step="1" type="range" value="35"/>
 </div>
 <!-- Slider: Booking Rate -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
-<label class="text-sm font-semibold opacity-80">Booking Rate %</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">28%</span>
-</div>
-<div class="relative flex w-full items-center h-6">
-<div class="flex h-1.5 flex-1 rounded-full bg-[#cfe7d3] dark:bg-[#2a452d]">
-<div class="h-full w-[28%] rounded-full bg-primary"></div>
-<div class="relative">
-<div class="absolute -left-2 -top-2 size-5 rounded-full bg-primary border-4 border-white dark:border-[#152a19] shadow-md cursor-pointer"></div>
+<label class="text-sm font-semibold opacity-80" for="bookingRate">Lead-to-Booking Rate</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<input class="w-12 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="bookingRateValue" max="80" min="5" step="1" type="number" value="28"/>
+<span>%</span>
 </div>
 </div>
-</div>
+<input class="w-full" id="bookingRate" max="80" min="5" step="1" type="range" value="28"/>
 </div>
 <!-- Slider: Average Job Price -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
-<label class="text-sm font-semibold opacity-80">Average Job Price</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">$185</span>
-</div>
-<div class="relative flex w-full items-center h-6">
-<div class="flex h-1.5 flex-1 rounded-full bg-[#cfe7d3] dark:bg-[#2a452d]">
-<div class="h-full w-[60%] rounded-full bg-primary"></div>
-<div class="relative">
-<div class="absolute -left-2 -top-2 size-5 rounded-full bg-primary border-4 border-white dark:border-[#152a19] shadow-md cursor-pointer"></div>
+<label class="text-sm font-semibold opacity-80" for="avgJobPrice">Average Ticket Price</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-20 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="avgJobPriceValue" max="400" min="80" step="1" type="number" value="185"/>
 </div>
 </div>
-</div>
+<input class="w-full" id="avgJobPrice" max="400" min="80" step="1" type="range" value="185"/>
 </div>
 <!-- Slider: Repeat Client % -->
 <div class="flex flex-col gap-3">
 <div class="flex justify-between items-center">
-<label class="text-sm font-semibold opacity-80">Repeat Client %</label>
-<span class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">65%</span>
-</div>
-<div class="relative flex w-full items-center h-6">
-<div class="flex h-1.5 flex-1 rounded-full bg-[#cfe7d3] dark:bg-[#2a452d]">
-<div class="h-full w-[65%] rounded-full bg-primary"></div>
-<div class="relative">
-<div class="absolute -left-2 -top-2 size-5 rounded-full bg-primary border-4 border-white dark:border-[#152a19] shadow-md cursor-pointer"></div>
+<label class="text-sm font-semibold opacity-80" for="repeatRate">Repeat Client %</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<input class="w-12 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="repeatRateValue" max="90" min="10" step="1" type="number" value="65"/>
+<span>%</span>
 </div>
 </div>
+<input class="w-full" id="repeatRate" max="90" min="10" step="1" type="range" value="65"/>
 </div>
+<!-- Slider: Monthly Churn -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold opacity-80" for="churnRate">Monthly Churn (Industry Avg.)</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<input class="w-12 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="churnRateValue" max="30" min="0" step="1" type="number" value="5"/>
+<span>%</span>
+</div>
+</div>
+<input class="w-full" id="churnRate" max="30" min="0" step="1" type="range" value="5"/>
+</div>
+<!-- Slider: Monthly Value of Repeat Client -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold opacity-80" for="repeatValue">Monthly Value of Repeat Client</label>
+<div class="flex items-center gap-2 text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+<span>$</span>
+<input class="w-20 bg-transparent text-right focus:outline-none p-0 m-0 border-0 appearance-none" id="repeatValueValue" max="400" min="60" step="1" type="number" value="160"/>
+</div>
+</div>
+<input class="w-full" id="repeatValue" max="400" min="60" step="1" type="range" value="160"/>
 </div>
 </div>
 <div class="mt-8 pt-6 border-t border-[#e7f3e9] dark:border-[#1a321d]">
@@ -171,8 +173,8 @@
 <!-- Summary Scorecards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-white dark:bg-[#152a19] p-6 rounded-xl border border-[#e7f3e9] dark:border-[#1a321d] shadow-sm">
-<p class="text-sm font-medium opacity-60 mb-1">Total Revenue (3mo)</p>
-<p class="text-3xl font-black text-[#0d1b10] dark:text-white tracking-tight">$42,850</p>
+<p class="text-sm font-medium opacity-60 mb-1" id="totalRevenueLabel">Total Revenue (3mo)</p>
+<p class="text-3xl font-black text-[#0d1b10] dark:text-white tracking-tight" id="totalRevenue">$42,850</p>
 <div class="mt-3 flex items-center gap-1 text-xs font-bold text-primary">
 <span class="material-symbols-outlined text-sm">trending_up</span>
 <span>+124% growth curve</span>
@@ -180,7 +182,7 @@
 </div>
 <div class="bg-primary dark:bg-primary/90 p-6 rounded-xl border border-primary shadow-lg shadow-primary/10">
 <p class="text-sm font-medium text-[#102213] opacity-80 mb-1">Net Profit</p>
-<p class="text-3xl font-black text-[#102213] tracking-tight">$18,420</p>
+<p class="text-3xl font-black text-[#102213] tracking-tight" id="netProfit">$18,420</p>
 <div class="mt-3 flex items-center gap-1 text-xs font-bold text-[#102213]">
 <span class="material-symbols-outlined text-sm">payments</span>
 <span>After all expenses</span>
@@ -188,7 +190,7 @@
 </div>
 <div class="bg-white dark:bg-[#152a19] p-6 rounded-xl border border-[#e7f3e9] dark:border-[#1a321d] shadow-sm">
 <p class="text-sm font-medium opacity-60 mb-1">Total Repeat Clients</p>
-<p class="text-3xl font-black text-[#0d1b10] dark:text-white tracking-tight">138</p>
+<p class="text-3xl font-black text-[#0d1b10] dark:text-white tracking-tight" id="totalRepeatClients">138</p>
 <div class="mt-3 flex items-center gap-1 text-xs font-bold text-primary">
 <span class="material-symbols-outlined text-sm">groups</span>
 <span>Lifetime value active</span>
@@ -197,9 +199,15 @@
 </div>
 <!-- Visual Results Card (Chart Container) -->
 <div class="bg-white dark:bg-[#152a19] rounded-xl border border-[#e7f3e9] dark:border-[#1a321d] shadow-sm overflow-hidden">
-<div class="px-8 py-6 border-b border-[#e7f3e9] dark:border-[#1a321d] flex justify-between items-center">
+<div class="px-8 py-6 border-b border-[#e7f3e9] dark:border-[#1a321d] flex flex-wrap justify-between items-center gap-4">
 <h3 class="font-bold text-lg">Revenue Composition Over Time</h3>
-<div class="flex gap-4 items-center">
+<div class="flex flex-wrap items-center gap-4">
+<label class="text-xs font-semibold uppercase tracking-wide text-[#4c9a59] dark:text-[#7ed38c]" for="trajectoryRange">Timeline</label>
+<select class="text-sm font-semibold rounded-lg border border-[#e7f3e9] dark:border-[#1a321d] bg-white dark:bg-[#102213] px-3 py-2" id="trajectoryRange">
+<option value="3">3 Months</option>
+<option value="6">6 Months</option>
+<option value="12">12 Months</option>
+</select>
 <div class="flex items-center gap-2">
 <span class="size-3 rounded-sm bg-[#cfe7d3] dark:bg-[#2a452d]"></span>
 <span class="text-xs font-medium opacity-70">One-time Jobs</span>
@@ -211,35 +219,8 @@
 </div>
 </div>
 <!-- Simplified Chart Visualization using CSS Flex/Height -->
-<div class="p-8 h-[360px] flex items-end justify-around gap-12 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4">
-<!-- Month 1 -->
-<div class="flex-1 flex flex-col items-center group max-w-[80px]">
-<div class="w-full flex flex-col-reverse rounded-t-lg overflow-hidden h-[120px] bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105">
-<div class="h-[20%] bg-primary" title="Recurring: $1,200"></div>
-<div class="h-[80%] bg-[#cfe7d3] dark:bg-[#2a452d]" title="One-time: $4,800"></div>
-</div>
-<span class="mt-4 font-bold text-sm">Month 1</span>
-<span class="text-xs opacity-60">$6,000</span>
-</div>
-<!-- Month 2 -->
-<div class="flex-1 flex flex-col items-center group max-w-[80px]">
-<div class="w-full flex flex-col-reverse rounded-t-lg overflow-hidden h-[200px] bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105">
-<div class="h-[45%] bg-primary" title="Recurring: $4,500"></div>
-<div class="h-[55%] bg-[#cfe7d3] dark:bg-[#2a452d]" title="One-time: $5,500"></div>
-</div>
-<span class="mt-4 font-bold text-sm">Month 2</span>
-<span class="text-xs opacity-60">$10,000</span>
-</div>
-<!-- Month 3 -->
-<div class="flex-1 flex flex-col items-center group max-w-[80px]">
-<div class="w-full flex flex-col-reverse rounded-t-lg overflow-hidden h-[300px] bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105">
-<div class="h-[75%] bg-primary" title="Recurring: $15,000"></div>
-<div class="h-[25%] bg-[#cfe7d3] dark:bg-[#2a452d]" title="One-time: $5,000"></div>
-</div>
-<span class="mt-4 font-bold text-sm">Month 3</span>
-<span class="text-xs opacity-60">$20,000</span>
-</div>
-</div>
+<div class="p-8 h-[360px] flex items-end justify-around gap-6 border-b border-dashed border-[#e7f3e9] dark:border-[#1a321d] mb-4" id="revenueChart"></div>
+<p class="px-8 text-xs text-[#4c9a59] dark:text-[#7ed38c] pb-4">Results shown are expected ranges based on average performance — not guarantees.</p>
 <div class="p-6 bg-[#f8fcf9] dark:bg-[#102213] flex items-start gap-4">
 <div class="p-2 bg-primary/20 rounded-full">
 <span class="material-symbols-outlined text-primary">auto_graph</span>
@@ -275,4 +256,160 @@
             © 2024 Cleaning Growth Systems. This simulation is for illustrative purposes only. Actual results may vary based on market conditions.
         </p>
 </footer>
+<script>
+        const inputs = {
+            adSpend: document.getElementById("adSpend"),
+            costPerLead: document.getElementById("costPerLead"),
+            bookingRate: document.getElementById("bookingRate"),
+            avgJobPrice: document.getElementById("avgJobPrice"),
+            repeatRate: document.getElementById("repeatRate"),
+            churnRate: document.getElementById("churnRate"),
+            repeatValue: document.getElementById("repeatValue"),
+        };
+
+        const outputs = {
+            totalRevenueLabel: document.getElementById("totalRevenueLabel"),
+            totalRevenue: document.getElementById("totalRevenue"),
+            netProfit: document.getElementById("netProfit"),
+            totalRepeatClients: document.getElementById("totalRepeatClients"),
+            revenueChart: document.getElementById("revenueChart"),
+            trajectoryRange: document.getElementById("trajectoryRange"),
+        };
+
+        const formatCurrency = (value) =>
+            value.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+        const formatNumber = (value) =>
+            value.toLocaleString("en-US", { maximumFractionDigits: 0 });
+
+        const clampValue = (value, min, max) => Math.min(Math.max(value, min), max);
+
+        const setBar = (barEl, recurringEl, onetimeEl, total, recurring, onetime, maxTotal) => {
+            const maxHeight = 300;
+            const height = maxTotal === 0 ? 0 : (total / maxTotal) * maxHeight;
+            barEl.style.height = `${Math.max(height, 40)}px`;
+            const recurringPercent = total === 0 ? 0 : (recurring / total) * 100;
+            const onetimePercent = total === 0 ? 0 : (onetime / total) * 100;
+            recurringEl.style.height = `${recurringPercent}%`;
+            onetimeEl.style.height = `${onetimePercent}%`;
+            recurringEl.title = `Recurring: ${formatCurrency(recurring)}`;
+            onetimeEl.title = `One-time: ${formatCurrency(onetime)}`;
+        };
+
+        const renderChart = (months, oneTimeRevenue) => {
+            outputs.revenueChart.innerHTML = "";
+            const maxTotal = Math.max(...months.map((month) => month.total), 1);
+            const shouldScroll = months.length >= 12;
+            const useShortLabel = months.length >= 12;
+            outputs.revenueChart.classList.toggle("overflow-x-auto", shouldScroll);
+            outputs.revenueChart.classList.toggle("justify-start", shouldScroll);
+            outputs.revenueChart.classList.toggle("custom-scrollbar", shouldScroll);
+            outputs.revenueChart.classList.toggle("justify-around", !shouldScroll);
+
+            months.forEach((month) => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "flex-1 flex flex-col items-center group min-w-[40px]";
+
+                const bar = document.createElement("div");
+                bar.className = "w-full flex flex-col-reverse rounded-t-lg overflow-hidden bg-gray-50 dark:bg-gray-800 transition-all hover:scale-105";
+
+                const recurringEl = document.createElement("div");
+                recurringEl.className = "bg-primary";
+
+                const onetimeEl = document.createElement("div");
+                onetimeEl.className = "bg-[#cfe7d3] dark:bg-[#2a452d]";
+
+                bar.appendChild(recurringEl);
+                bar.appendChild(onetimeEl);
+
+                const label = document.createElement("span");
+                label.className = "mt-4 font-bold text-sm";
+                label.textContent = useShortLabel ? `M${month.index}` : `Month ${month.index}`;
+
+                const total = document.createElement("span");
+                total.className = useShortLabel ? "text-xs opacity-0" : "text-xs opacity-60";
+                total.textContent = useShortLabel ? "" : formatCurrency(month.total);
+                wrapper.title = `Total: ${formatCurrency(month.total)}`;
+
+                wrapper.appendChild(bar);
+                wrapper.appendChild(label);
+                wrapper.appendChild(total);
+                outputs.revenueChart.appendChild(wrapper);
+
+                setBar(bar, recurringEl, onetimeEl, month.total, month.recurring, oneTimeRevenue, maxTotal);
+            });
+        };
+
+        const updateModel = () => {
+            const adSpend = Number(inputs.adSpend.value);
+            const costPerLead = Number(inputs.costPerLead.value);
+            const bookingRate = Number(inputs.bookingRate.value) / 100;
+            const avgJobPrice = Number(inputs.avgJobPrice.value);
+            const repeatRate = Number(inputs.repeatRate.value) / 100;
+            const churnRate = Number(inputs.churnRate.value) / 100;
+            const repeatValue = Number(inputs.repeatValue.value);
+
+            const timelineMonths = Number(outputs.trajectoryRange.value);
+            const leads = costPerLead === 0 ? 0 : adSpend / costPerLead;
+            const bookings = leads * bookingRate;
+            const oneTimeRevenue = bookings * avgJobPrice;
+            const newRepeatClients = bookings * repeatRate;
+
+            const months = [];
+            let activeRepeats = 0;
+            for (let i = 1; i <= timelineMonths; i += 1) {
+                activeRepeats = activeRepeats * (1 - churnRate) + newRepeatClients;
+                const recurringRevenue = activeRepeats * repeatValue;
+                months.push({
+                    index: i,
+                    recurring: recurringRevenue,
+                    total: oneTimeRevenue + recurringRevenue,
+                });
+            }
+
+            const totalRevenue = months.reduce((sum, month) => sum + month.total, 0);
+            const netProfit = totalRevenue - adSpend * timelineMonths;
+            const totalRepeatClients = activeRepeats;
+
+            outputs.totalRevenueLabel.textContent = `Total Revenue (${timelineMonths}mo)`;
+            outputs.totalRevenue.textContent = formatCurrency(totalRevenue);
+            outputs.netProfit.textContent = formatCurrency(netProfit);
+            outputs.totalRepeatClients.textContent = formatNumber(totalRepeatClients);
+            renderChart(months, oneTimeRevenue);
+        };
+
+        const controlPairs = [
+            { range: "adSpend", input: "adSpendValue" },
+            { range: "costPerLead", input: "costPerLeadValue" },
+            { range: "bookingRate", input: "bookingRateValue" },
+            { range: "avgJobPrice", input: "avgJobPriceValue" },
+            { range: "repeatRate", input: "repeatRateValue" },
+            { range: "churnRate", input: "churnRateValue" },
+            { range: "repeatValue", input: "repeatValueValue" },
+        ];
+
+        controlPairs.forEach(({ range, input }) => {
+            const rangeEl = document.getElementById(range);
+            const inputEl = document.getElementById(input);
+            inputEl.value = rangeEl.value;
+            const syncFromRange = () => {
+                inputEl.value = rangeEl.value;
+                updateModel();
+            };
+            const syncFromInput = () => {
+                const min = Number(rangeEl.min);
+                const max = Number(rangeEl.max);
+                const nextValue = clampValue(Number(inputEl.value || rangeEl.min), min, max);
+                rangeEl.value = nextValue;
+                inputEl.value = nextValue;
+                updateModel();
+            };
+            rangeEl.addEventListener("input", syncFromRange);
+            inputEl.addEventListener("input", syncFromInput);
+        });
+
+        outputs.trajectoryRange.addEventListener("change", updateModel);
+
+        updateModel();
+</script>
 </body></html>
